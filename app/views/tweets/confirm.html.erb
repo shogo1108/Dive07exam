@@ -1,0 +1,8 @@
+<h3>以下の内容で投稿します。</h3>
+
+<%= form_for(@tweet) do |f| %>
+    <%= f.hidden_field :content %>
+    <p>内容</p><br/>
+    <p><%= @tweet.content %></p>
+    <%= f.submit "投稿する" %>
+<% end %>

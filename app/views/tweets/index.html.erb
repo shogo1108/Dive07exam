@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+
+<p><%= notice %></p>
+
+<%= form_for(@tweet, url: confirm_tweets_path) do |f| %>
+    <% f.label :content %>
+    <%= f.text_field :content,class: "form-control" %>
+    <%= f.submit "送信", class: "btn btn-primary btn-block" %>
+<% end %>
+
+    <div class="wrapper col-md-12  col-sm-10">
+        <h1>tweet一覧</h1>
+        <% @tweets.each do |tweet| %>
+            <div class="row">
+                <p><%= tweet.content %></p>
+                <div class="button-position">
+                <%= link_to "編集", edit_tweet_path(tweet.id),  class: "button1 btn btn-default btn-sm btn-success" %>
+                <%= link_to "削除", tweet_path(tweet.id),  method: :delete, data: { confirm: "本当に削除していいですか？"}, class: "button1 btn btn-default btn-sm btn btn-danger" %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+        
+</div>
+</div>
